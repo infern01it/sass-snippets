@@ -1,0 +1,177 @@
+// Медиа миксины
+@mixin media($bp, $current-orientation: null) {
+	@if map-has-key($breakpoints, $bp) {
+		$max: _breakpoint-max($bp);
+		@if $max {
+			@if $current-orientation == null {
+				@media (max-width: $max) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (max-width: $max) and (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (max-width: $max) and (orientation: landscape) {
+					@content;
+				}
+			}
+		} @else {
+			@if $current-orientation == null {
+				@content;
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (orientation: landscape) {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}
+
+@mixin media-up($bp, $current-orientation: null) {
+	@if map-has-key($breakpoints, $bp) {
+		$min: _breakpoint-min($bp);
+		@if $min {
+			@if $current-orientation == null {
+				@media (min-width: $min) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (min-width: $min) and (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (min-width: $min) and (orientation: landscape) {
+					@content;
+				}
+			}
+		} @else {
+			@if $current-orientation == null {
+				@content;
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (orientation: landscape) {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}
+
+@mixin media-between($lower, $upper, $current-orientation: null) {
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		$min: _breakpoint-min($lower);
+		$max: _breakpoint-max($upper);
+
+		@if $min != null and $max != null {
+			@if $current-orientation == null {
+				@media (min-width: $min) and (max-width: $max) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (min-width: $min) and (max-width: $max) and (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (min-width: $min) and (max-width: $max) and (orientation: landscape) {
+					@content;
+				}
+			}
+		} @else if $max == null {
+			@if $current-orientation == null {
+				@include media-up($lower) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@include media-up($lower, p) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@include media-up($lower, l) {
+					@content;
+				}
+			}
+		} @else if $min == null {
+			@if $current-orientation == null {
+				@include media($upper) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@include media($upper, p) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@include media($upper, l) {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$lower}` or `#{$upper}`." + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}
+
+
+@mixin media-only($bp, $current-orientation: null) {
+	@if map-has-key($breakpoints, $bp) {
+		$min: _breakpoint-min($bp);
+		$max: _breakpoint-max($bp);
+
+		@if $min != null and $max != null {
+			@if $current-orientation == null {
+				@media (min-width: $min) and (max-width: $max) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@media (min-width: $min) and (max-width: $max) and (orientation: portrait) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@media (min-width: $min) and (max-width: $max) and (orientation: landscape) {
+					@content;
+				}
+			}
+		} @else if $max == null {
+			@if $current-orientation == null {
+				@include media-up($bp) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@include media-up($bp, p) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@include media-up($bp, l) {
+					@content;
+				}
+			}
+		} @else if $min == null {
+			@if $current-orientation == null {
+				@include media($bp) {
+					@content;
+				}
+			} @else if $current-orientation == portrait or $current-orientation == p {
+				@include media($bp, p) {
+					@content;
+				}
+			} @else if $current-orientation == landscape or $current-orientation == l {
+				@include media($bp, l) {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}

@@ -1,0 +1,44 @@
+// checkbox
+// 1 - ширина
+// 2 - высота
+// 3 - позиция сверху
+// 4 - позиция слева
+// 4 - ширина рамки
+// 4 - цвет рамки
+
+@mixin checkbox($width, $height, $top, $left, $border, $color) {
+	$check-width: $width * .33;
+	$check-height: $height * .58;
+	$check-top: $height * .166;
+	$check-left: $width * .335;
+	
+	display: none;
+	&:checked +label::after {
+		border-right: $border solid $color;
+		border-bottom: $border solid $color;
+	}
+	+ label {
+		position: relative;
+		cursor: pointer;
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+		}
+		&::before {
+			top: $top;
+			left: $left;
+			width: $width;
+			height: $height;
+			border: $border solid $color;
+		}
+		&::after {
+			top: $check-top + $top;
+			left: $check-left + $left;
+			transform: rotate(45deg);
+			width: $check-width;
+			height: $check-height;
+		}
+	}
+}

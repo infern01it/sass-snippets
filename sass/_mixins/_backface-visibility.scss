@@ -1,0 +1,8 @@
+@mixin backface-visibility($value) {
+	$backfaces: "-o" "-webkit" "-moz" "-ms";
+	@each $backface in $backfaces {
+		&#{$backface}-backface-visibility {
+			@content;
+		}
+	}
+}

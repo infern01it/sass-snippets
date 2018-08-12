@@ -1,0 +1,3 @@
+@mixin trs($time: .3s, $prop: all, $func: ease-in-out) {
+	transition: $prop $time $func;
+}

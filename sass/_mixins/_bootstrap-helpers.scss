@@ -1,0 +1,19 @@
+@mixin b4col($w) {
+	@if $w == none {
+		flex: none;
+		max-width: none;
+	} @else {
+		flex: 0 0 $w;
+		max-width: $w;
+	}
+}
+
+@mixin b4row {
+	margin-left: -$grid-gutter-width / 2;
+	margin-right: -$grid-gutter-width / 2;
+}
+
+@mixin b4p {
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
+}

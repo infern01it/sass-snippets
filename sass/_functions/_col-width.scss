@@ -1,0 +1,11 @@
+@function _col($col, $con: null) {
+	@if map-has-key($max-widths, $con) {
+		@if $con == null {
+			@return 100% / $grid-columns * $col;
+		} @else {
+			@return map-get($max-widths, $con) / $grid-columns * $col;
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$con}`. " + "Available containers are: #{map-keys($max-widths)}.";
+	}
+}

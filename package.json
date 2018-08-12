@@ -1,0 +1,23 @@
+{
+  "name": "sass-snippets",
+  "version": "1.0.0",
+  "description": "Sass snippets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infernotiv/snippets.git"
+  },
+  "keywords": [
+    "sass",
+    "scss"
+  ],
+  "author": "Max Shevkoplias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infernotiv/snippets/issues"
+  },
+  "homepage": "https://github.com/infernotiv/snippets#readme"
+}

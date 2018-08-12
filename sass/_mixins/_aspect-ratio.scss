@@ -1,0 +1,18 @@
+/// Mixin создания блока с фиксированным соотношением сторон
+/// @param {Length} $ratio-or-width - Ширина и либо коэффециент блока
+/// @param {Length} $height - Высота блока
+///   +aspect-ratio(16,9)
+
+@mixin aspect-ratio($ratio-or-width, $height: null) {
+	$padding: if($height, percentage($height/$ratio-or-width), percentage(1/$ratio-or-width));
+	&::before {
+		content: '';
+		float: left;
+		padding-bottom: $padding;
+	}
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}

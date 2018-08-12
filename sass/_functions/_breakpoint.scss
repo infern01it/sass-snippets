@@ -1,0 +1,27 @@
+@function _breakpoint-next($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		$breakpoint-bps: map-keys($breakpoints);
+		$n: index($breakpoint-bps, $bp);
+		@return if($n < length($breakpoint-bps), nth($breakpoint-bps, $n + 1), null);
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+	}
+}
+
+@function _breakpoint-min($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		$min: map-get($breakpoints, $bp);
+		@return if($min != 0, $min, null);
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+	}
+}
+
+@function _breakpoint-max($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		$next: _breakpoint-next($bp);
+		@return if($next, _breakpoint-min($next) - .02px, null);
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+	}
+}
