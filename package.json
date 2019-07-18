@@ -1,6 +1,6 @@
 {
   "name": "sass-snippets",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Sass snippets",
   "main": "index.js",
   "style": "scss/_sass-snippets.scss",
