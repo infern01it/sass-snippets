@@ -1,3 +1,7 @@
+/// Функция возвращающая ширину колонок
+/// @param {number} $col - Количество колонок для которых необходимо вернуть ширину в процентах
+/// @param {null | string} $con [null] - Контейнер для которого нужно вернуть ширину колонок в пикселях (не обязателен)
+
 @function _col($col, $con: null) {
 	@if $con == null {
 		@return 100% / $grid-columns * $col;
@@ -5,7 +9,7 @@
 		@if map-has-key($max-widths, $con) {
 			@return map-get($max-widths, $con) / $grid-columns * $col;
 		} @else {
-			@warn "Unfortunately, no value could be retrieved from `#{$con}`. " + "Available containers are: #{map-keys($max-widths)}.";
+			@warn "Unfortunately, no value could be retrieved from `#{$con}`. Available containers are: #{map-keys($max-widths)}.";
 		}
 	}
 }

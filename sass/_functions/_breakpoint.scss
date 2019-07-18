@@ -1,27 +1,39 @@
+/// Функция проверяющего есть ли в глобальном объекте breakpoint выше текущего
+/// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
+/// @return {number | null} - Если breakpoint выше текущего есть возвращает его, иначе - 'null'
+
 @function _breakpoint-next($bp) {
 	@if map-has-key($breakpoints, $bp) {
 		$breakpoint-bps: map-keys($breakpoints);
 		$n: index($breakpoint-bps, $bp);
 		@return if($n < length($breakpoint-bps), nth($breakpoint-bps, $n + 1), null);
 	} @else {
-		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. Available containers are: #{map-keys($breakpoints)}.";
 	}
 }
+
+/// Функция возвращающая нижнюю границу breakpoint'a
+/// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
+/// @return {number} - Если breakpoint не самый нижний возвращает его, иначе - 'null'
 
 @function _breakpoint-min($bp) {
 	@if map-has-key($breakpoints, $bp) {
 		$min: map-get($breakpoints, $bp);
 		@return if($min != 0, $min, null);
 	} @else {
-		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. Available containers are: #{map-keys($breakpoints)}.";
 	}
 }
+
+/// Функция возвращающая верхнюю границу breakpoint'a
+/// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
+/// @return {number} - Если breakpoint не самый верхний возвращает его (но предварительно отняв '.02px'), иначе - 'null'
 
 @function _breakpoint-max($bp) {
 	@if map-has-key($breakpoints, $bp) {
 		$next: _breakpoint-next($bp);
 		@return if($next, _breakpoint-min($next) - .02px, null);
 	} @else {
-		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. " + "Available containers are: #{map-keys($breakpoints)}.";
+		@warn "Unfortunately, no value could be retrieved from `#{$bp}`. Available containers are: #{map-keys($breakpoints)}.";
 	}
 }

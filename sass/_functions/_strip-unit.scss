@@ -1,6 +1,6 @@
-/// Remove the unit of a length
-/// @param {Number} $number - Number to remove unit from
-/// @return {Number} - Unitless number
+/// Функция удаляющая единицы измерения
+/// @param {number} $number - Число из которого необходимо удалить единицы измерения
+/// @return {number} - Чистое число
 
 @function _strip-unit($number) {
 	@if type-of($number) == 'number' and not unitless($number) {

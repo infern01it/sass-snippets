@@ -1,3 +1,10 @@
+/// Функция генерирующая строку src для директивы подключения шрифтов
+/// @param {string} $font-family - Название шрифта
+/// @param {string} $file-path - Путь ко шрифту (без расширения)
+/// @param {array} $file-formats - Необходимые для подключения форматы шрифтов
+/// @param {string} $font-url - Путь ко шритам
+/// @return {string} - Готовая к использованию строка в качестве параметра свойства src в директиве @font-face
+
 @function _font-source-declaration(
 	$font-family,
 	$file-path,

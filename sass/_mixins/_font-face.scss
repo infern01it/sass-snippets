@@ -1,3 +1,8 @@
+/// Миксин добавляющий подключение шрифтов
+/// @param {string} $font-family - Название шрифта
+/// @param {string} $file-path - Путь к папке
+/// @param {array | null} $file-formats [null] - Типы шрифтов, если не узакано берет из глобавльной переменной
+
 @mixin font-face(
 	$font-family,
 	$file-path,

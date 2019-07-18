@@ -1,3 +1,8 @@
+/// Функция проверяющая есть ли необходимые ключи в объекте
+/// @param {object} $list - Проверяемый объект
+/// @param {string} $values... - Массив проверяемых значений
+/// @return {boolean} - Возвращает true если все переданные значения существуют как ключи в исходном объекте
+
 @function _contains($list, $values...) {
 	@each $value in $values {
 		@if type-of(index($list, $value)) != "number" {
