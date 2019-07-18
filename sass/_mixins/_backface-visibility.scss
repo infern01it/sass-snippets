@@ -1,4 +1,5 @@
 @mixin backface-visibility($value) {
+	@warn "Deprecation Warning: This mixin has been deprecated and will be removed in v2";
 	$backfaces: "-o" "-webkit" "-moz" "-ms";
 	@each $backface in $backfaces {
 		&#{$backface}-backface-visibility {

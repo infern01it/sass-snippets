@@ -7,6 +7,7 @@
 // 4 - цвет рамки
 
 @mixin checkbox($width, $height, $top, $left, $border, $color) {
+	@warn "Deprecation Warning: This mixin has been deprecated and will be removed in v2";
 	$check-width: $width * .33;
 	$check-height: $height * .58;
 	$check-top: $height * .166;

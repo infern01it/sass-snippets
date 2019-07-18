@@ -1,4 +1,5 @@
 @function _sqrt($r) {
+	@warn "Deprecation Warning: This function has been deprecated and will be removed in v2";
 	$x0: 1;
 	$x1: $x0;
 	@for $i from 1 through 10 {

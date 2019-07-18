@@ -1,3 +1,4 @@
 @mixin trs($time: .3s, $prop: all, $func: ease-in-out) {
+	@warn "Deprecation Warning: This mixin has been deprecated and will be removed in v2";
 	transition: $prop $time $func;
 }

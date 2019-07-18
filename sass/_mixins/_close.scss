@@ -6,6 +6,7 @@
 ///   +close(60px, 15px, #f0f, true)
 
 @mixin close($size, $border, $color, $bdr: false) {
+	@warn "Deprecation Warning: This mixin has been deprecated and will be removed in v2";
 	$size: _strip-unit($size);
 	$length: floor(_sqrt($size * $size + $size * $size));
 	

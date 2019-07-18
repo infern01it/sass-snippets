@@ -1,4 +1,5 @@
 @mixin placeholder {
+	@warn "Deprecation Warning: This mixin has been deprecated and will be removed in v2";
 	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
 	@each $placeholder in $placeholders {
 		&:#{$placeholder}-placeholder {
