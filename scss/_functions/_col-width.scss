@@ -10,13 +10,17 @@
 /// _col(5, md) // 400px
 
 @function _col($col, $con: null) {
-	@if $con == null {
-		@return 100% / $grid-columns * $col;
-	} @else {
-		@if map-has-key($max-widths, $con) {
-			@return map-get($max-widths, $con) / $grid-columns * $col;
-		} @else {
-			@warn "Unfortunately, no value could be retrieved from `#{$con}`. Available containers are: #{map-keys($max-widths)}.";
-		}
-	}
+  @if $con == null {
+    @return 100% / $grid-columns * $col;
+  }
+
+  @else {
+    @if map-has-key($max-widths, $con) {
+      @return map-get($max-widths, $con) / $grid-columns * $col;
+    }
+
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$con}`. Available containers are: #{map-keys($max-widths)}.";
+    }
+  }
 }

@@ -16,19 +16,21 @@
 /// //  }
 
 @mixin font-face(
-	$font-family,
-	$file-path,
-	$file-formats: null
+  $font-family,
+  $file-path,
+  $file-formats: null
 ) {
-	$file-formats: if($file-formats != null, $file-formats, $font-formats);
-	@font-face {
-		font-family: $font-family;
-		src: _font-source-declaration(
-			$font-family,
-			$file-path,
-			$file-formats,
-			$file-path
-		);
-		@content;
-	}
+  $file-formats: if($file-formats != null, $file-formats, $font-formats);
+
+  @font-face {
+    font-family: $font-family;
+    src:
+      _font-source-declaration(
+        $font-family,
+        $file-path,
+        $file-formats,
+        $file-path
+      );
+    @content;
+  }
 }

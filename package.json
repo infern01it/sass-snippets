@@ -6,6 +6,7 @@
   "style": "scss/_sass-snippets.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "sassdoc": "sassdoc scss"
   },
   "repository": {
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/infernotiv/sass-snippets/issues"
   },
-  "homepage": "https://infernotiv.github.io/sass-snippets-doc/"
+  "homepage": "https://infernotiv.github.io/sass-snippets-doc/",
+  "devDependencies": {
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0"
+  }
 }

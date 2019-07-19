@@ -5,10 +5,11 @@
 /// @return {bool} - Возвращает true если все переданные значения существуют как ключи в исходном списке
 
 @function _contains($list, $values...) {
-	@each $value in $values {
-		@if type-of(index($list, $value)) != "number" {
-			@return false;
-		}
-	}
-	@return true;
+  @each $value in $values {
+    @if type-of(index($list, $value)) != "number" {
+      @return false;
+    }
+  }
+
+  @return true;
 }
