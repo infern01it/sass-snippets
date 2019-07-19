@@ -1,6 +1,6 @@
 {
   "name": "sass-snippets",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Sass snippets",
   "main": "index.js",
   "style": "scss/_sass-snippets.scss",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infernotiv/snippets.git"
+    "url": "git+https://github.com/infernotiv/sass-snippets.git"
   },
   "keywords": [
     "sass",
@@ -18,7 +18,7 @@
   "author": "Max Shevkoplias",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/infernotiv/snippets/issues"
+    "url": "https://github.com/infernotiv/sass-snippets/issues"
   },
-  "homepage": "https://github.com/infernotiv/snippets#readme"
+  "homepage": "https://github.com/infernotiv/sass-snippets#readme"
 }
