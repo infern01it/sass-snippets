@@ -1,7 +1,19 @@
-/// Миксин добавляющий подключение шрифтов
+/// Разворачивает директиву с параметрами для подключение шрифтов
+/// @group fonts
 /// @param {string} $font-family - Название шрифта
 /// @param {string} $file-path - Путь к папке
-/// @param {array | null} $file-formats [null] - Типы шрифтов, если не узакано берет из глобавльной переменной
+/// @param {list | null} $file-formats [null] - Типы шрифтов, если не узакано берёт из глобальной переменной
+/// @example
+/// // Вызов:
+/// +font-face("Raleway", "#{$url-font}/Raleway-Regular/Raleway-Regular")
+///		font-weight: 400
+///
+/// // Вернет:
+/// //  @font-face {
+/// // 		font-family: "Raleway";
+/// // 		src: url("/fonts/Raleway-Regular/Raleway-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/Raleway-Regular/Raleway-Regular.woff") format("woff"), url("/fonts/Raleway-Regular/Raleway-Regular.ttf") format("truetype");
+/// // 		font-weight: 400;
+/// //  }
 
 @mixin font-face(
 	$font-family,

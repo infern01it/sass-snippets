@@ -1,0 +1,10 @@
+{
+    "package": "./package.json",
+    "groups": {
+        "undefined": "Базовое API",
+        "flex-grid": "Работа с сеткой",
+        "fonts": "Работа со шрифтами",
+        "helpers": "Helpers",
+        "media": "Работа с медиа-запросами"
+    }
+}

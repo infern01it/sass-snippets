@@ -1,8 +1,33 @@
-/// Mixin создания блока с фиксированным соотношением сторон
+/// Разворачивание параметров для создания блока с фиксированным соотношением сторон
+/// @group helpers
 /// @param {number | string} $ratio-or-width - Ширина, коэффециент блока, либо none если необходимо отменить трансформацию
-/// @param {number} $height [null] - Высота блока, если не указано берет первый параметр
+/// @param {number} $height [null] - Высота блока, если не указано берёт первый параметр
 /// @example
-///   +aspect-ratio(16,9)
+/// // Вызов:
+/// video
+/// 	+aspect-ratio(16, 9)
+///
+/// // Вернёт:
+/// // 	video::before {
+/// // 		content: '';
+/// // 		float: left;
+/// // 		padding-bottom: 56.25%;
+/// // 	}
+/// //
+/// // 	video::after {
+/// // 		content: '';
+/// // 		display: table;
+/// // 		clear: both;
+/// // 	}
+///
+/// // Вызов:
+/// video
+/// 	+aspect-ratio(none)
+///
+/// // Вернёт:
+/// //  video::before, video::after {
+/// // 		display: none;
+/// //  }
 
 @mixin aspect-ratio($ratio-or-width, $height: null) {
 	@if $ratio-or-width == none {

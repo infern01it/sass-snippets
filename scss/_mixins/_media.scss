@@ -1,6 +1,10 @@
-/// Миксин создания медиа запроса для ширины экрана меньше указанного
+/// Разворачивание медиа запроса для ширины экрана меньше указанного
+/// @group media
 /// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
-/// @param {null | enum} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @param {null | string} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @example
+/// +media(md) // @media (max-width: 1199.98px) { ... }
+/// +media(xs, p) // @media (max-width: 767.98px) and (orientation: portrait) { ... }
 
 @mixin media($bp, $current-orientation: null) {
 	@if map-has-key($breakpoints, $bp) {
@@ -37,9 +41,13 @@
 	}
 }
 
-/// Миксин создания медиа запроса для ширины экрана больше указанного
+/// Разворачивание медиа запроса для ширины экрана больше указанного
+/// @group media
 /// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
-/// @param {null | enum} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @param {null | string} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @example
+/// +media-up(lg) // @media (min-width: 1200px) { ... }
+/// +media-up(sm, l) // @media (min-width: 768px) and (orientation: landscape) { ... }
 
 @mixin media-up($bp, $current-orientation: null) {
 	@if map-has-key($breakpoints, $bp) {
@@ -76,10 +84,14 @@
 	}
 }
 
-/// Миксин создания медиа запроса для ширины экрана в пределах "от" и "до"
+/// Разворачивание медиа запроса для ширины экрана в пределах "от" и "до"
+/// @group media
 /// @param {string} $lower - Breakpoint ширины экрана для нижней точки "от" (ключ из глобального объекта)
 /// @param {string} $upper - Breakpoint ширины экрана для верхней точки "до" (ключ из глобального объекта)
-/// @param {null | enum} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @param {null | string} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @example
+/// +media-between(sm, md) // @media (min-width: 768px) and (max-width: 1199.98px) { ... }
+/// +media-between(sm, md, l) // @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) { ... }
 
 @mixin media-between($lower, $upper, $current-orientation: null) {
 	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
@@ -134,9 +146,13 @@
 	}
 }
 
-/// Миксин создания медиа запроса для ширины экрана в пределах одного breakpoint'a
+/// Разворачивание медиа запроса для ширины экрана в пределах одного breakpoint'a
+/// @group media
 /// @param {string} $bp - Breakpoint ширины экрана (ключ из глобального объекта)
-/// @param {null | enum} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @param {null | string} $current-orientation [null] - Ориентация экрана (не обязательный параметр)
+/// @example
+/// +media-only(sm) // @media (min-width: 768px) and (max-width: 991.98px) { ... }
+/// +media-only(sm, p) // @media (min-width: 768px) and (max-width: 991.98px) and (orientation: portrait) { ... }
 
 @mixin media-only($bp, $current-orientation: null) {
 	@if map-has-key($breakpoints, $bp) {

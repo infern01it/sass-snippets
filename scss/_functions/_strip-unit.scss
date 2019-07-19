@@ -1,6 +1,12 @@
-/// Функция удаляющая единицы измерения
-/// @param {number} $number - Число из которого необходимо удалить единицы измерения
+/// Возвращает "чистое" число без единиц измерения (%, px, rem, em, vw, vh и т.д.)
+/// @group helpers
+/// @access public
+/// @param {string | number} $number - Число из которого необходимо удалить единицы измерения
 /// @return {number} - Чистое число
+/// @example
+/// _strip-unit(16px) // 16
+/// _strip-unit(1.2rem) // 1.2
+/// _strip-unit(16) // 16
 
 @function _strip-unit($number) {
 	@if type-of($number) == 'number' and not unitless($number) {

@@ -5,7 +5,8 @@
   "main": "index.js",
   "style": "scss/_sass-snippets.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sassdoc": "sassdoc scss"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,5 @@
   "bugs": {
     "url": "https://github.com/infernotiv/sass-snippets/issues"
   },
-  "homepage": "https://github.com/infernotiv/sass-snippets#readme"
+  "homepage": "https://infernotiv.github.io/sass-snippets-doc/"
 }
